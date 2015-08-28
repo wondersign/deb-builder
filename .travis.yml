@@ -4,5 +4,8 @@ python:
 before_install:
   - gem environment
   - gem install package_cloud
+  - pwd
+  - ls -lah
 script:
+  - ls -lah
   - sudo -E ./build.sh
