@@ -14,11 +14,16 @@ before_install:
   - cd cutycapt
   - sudo debian/rules get-orig-source
   - sudo mv cutycapt*.tar.gz ..
-  - gem install package_cloud
 install:
   - mkdir -p ~/build/debs
 script:
   - sudo pdebuild --use-pdebuild-internal
   - sudo cp -Rp ../*.deb ~/build/debs
   - cd ~/build/debs
-  - package_cloud push amontalban/cutycapt/debian/wheezy ~/build/debs/*.deb
+deploy:
+  provider: packagecloud
+  repository: "amontalban/cutycapt"
+  username: "amontalban"
+  dist: "debian/wheezy"
+  token: ${PACKAGECLOUD_TOKEN}
+  package_glob: *.deb
