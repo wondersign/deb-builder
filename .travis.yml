@@ -14,7 +14,6 @@ before_install:
   - cd cutycapt
   - sudo debian/rules get-orig-source
   - sudo mv cutycapt*.tar.gz ..
-before_install:
   - gem install package_cloud
 install:
   - mkdir -p ~/build/debs
