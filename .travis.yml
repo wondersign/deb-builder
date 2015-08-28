@@ -4,5 +4,5 @@ python:
 before_install:
   - gem install package_cloud
 script:
-  - bash build.sh
+  - sudo -E sh -c "bash build.sh"
   - bash push.sh
