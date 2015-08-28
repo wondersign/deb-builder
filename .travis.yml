@@ -14,10 +14,12 @@ before_install:
   - cd cutycapt
   - sudo debian/rules get-orig-source
   - sudo mv cutycapt*.tar.gz ..
-  - gem install package_cloud
+  - type gem
+  - cat /home/travis/.rvm/scripts/override_gem
+  - sudo gem install package_cloud
 install:
   - mkdir -p ~/build/debs
 script:
   - sudo pdebuild --use-pdebuild-internal
   - sudo cp -Rp ../*.deb ~/build/debs
-  - package_cloud push amontalban/cutycapt/debian/wheezy ~/build/debs/*.deb
+  - sudo package_cloud push amontalban/cutycapt/debian/wheezy ~/build/debs/*.deb
