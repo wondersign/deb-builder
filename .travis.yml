@@ -2,10 +2,6 @@ language: python
 python:
  - "2.7"
 before_install:
-  - gem environment
   - gem install package_cloud
-  - pwd
-  - ls -lah
 script:
-  - ls -lah
-  - sudo -E ./build.sh
+  - sudo -E sh -c "bash build.sh"
