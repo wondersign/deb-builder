@@ -1,6 +1,6 @@
-language: python
-python:
- - "2.7"
+language: ruby
+rvm:
+  - 2.1.7
 before_install:
   - export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
   - sudo -E sh -c "echo 'deb http://archive.ubuntu.com/ubuntu precise-backports main restricted universe multiverse' > /etc/apt/sources.list.d/precise-backports.list"
@@ -14,16 +14,10 @@ before_install:
   - cd cutycapt
   - sudo debian/rules get-orig-source
   - sudo mv cutycapt*.tar.gz ..
+  - gem install package_cloud
 install:
   - mkdir -p ~/build/debs
 script:
   - sudo pdebuild --use-pdebuild-internal
   - sudo cp -Rp ../*.deb ~/build/debs
-  - cd ~/build/debs
-deploy:
-  provider: packagecloud
-  repository: "amontalban/cutycapt"
-  username: "amontalban"
-  dist: "debian/wheezy"
-  token: ${PACKAGECLOUD_TOKEN}
-  local-dir: ~/build/debs
+  - package_cloud push amontalban/cutycapt/debian/wheezy ~/build/debs/*.deb
