@@ -14,6 +14,3 @@ cd cutycapt
 sudo debian/rules get-orig-source
 sudo mv cutycapt*.tar.gz ..
 sudo pdebuild --use-pdebuild-internal
-mkdir -p ~/build/debs
-sudo cp -Rp ../*.deb ~/build/debs
-package_cloud push amontalban/cutycapt/debian/wheezy ~/build/debs/*.deb

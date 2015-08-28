@@ -5,3 +5,4 @@ before_install:
   - gem install package_cloud
 script:
   - bash build.sh
+  - bash push.sh
