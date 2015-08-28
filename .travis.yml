@@ -26,4 +26,4 @@ deploy:
   username: "amontalban"
   dist: "debian/wheezy"
   token: ${PACKAGECLOUD_TOKEN}
-  package_glob: *.deb
+  local-dir: ~/build/debs
