@@ -4,4 +4,4 @@ python:
 before_install:
   - gem install package_cloud
 script:
-  - sudo -E sh -c "bash build.sh"
+  - bash build.sh

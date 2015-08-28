@@ -16,4 +16,4 @@ sudo mv cutycapt*.tar.gz ..
 sudo pdebuild --use-pdebuild-internal
 mkdir -p ~/build/debs
 sudo cp -Rp ../*.deb ~/build/debs
-sudo package_cloud push amontalban/cutycapt/debian/wheezy ~/build/debs/*.deb
+package_cloud push amontalban/cutycapt/debian/wheezy ~/build/debs/*.deb
