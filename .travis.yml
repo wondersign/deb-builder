@@ -15,7 +15,10 @@ before_install:
   - sudo debian/rules get-orig-source
   - sudo mv cutycapt*.tar.gz ..
 install:
-  - sudo pdebuild --use-pdebuild-internal
+  - mkdir -p ~/build/debs
+script:
+  - sudo pdebuild --use-pdebuild-internal --buildresult ~/build/debs
+  - cd ~/build/debs
 deploy:
   provider: packagecloud
   repository: "amontalban/cutycapt"
