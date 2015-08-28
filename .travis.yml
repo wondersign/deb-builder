@@ -17,8 +17,8 @@ before_install:
 install:
   - mkdir -p ~/build/debs
 script:
-  - sudo pdebuild --use-pdebuild-internal --buildresult ~/build/debs
-  - cd ~/build/debs
+  - sudo pdebuild --use-pdebuild-internal
+  - cd ..
 deploy:
   provider: packagecloud
   repository: "amontalban/cutycapt"
