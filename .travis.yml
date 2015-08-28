@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get -y install -t precise-backports debian-archive-keyring
   - sudo apt-get -y install subversion pbuilder debootstrap devscripts dos2unix git
   - sudo -E sh -c "echo 'OTHERMIRROR=\"deb http://httpredir.debian.org/debian wheezy-backports main\"' >> ~/.pbuilderrc"
-  - sudo pbuilder create --distribution wheezy --debootstrapopts --keyring=/etc/apt/trusted.gpg.d/debian-archive-wheezy-stable.gpg --mirror http://httpredir.debian.org/debian/ --extrapackages pbuilder
+  - sudo pbuilder create --distribution wheezy --debootstrapopts --keyring=/etc/apt/trusted.gpg.d/debian-archive-wheezy-stable.gpg --mirror http://httpredir.debian.org/debian/
   - sudo pbuilder update
   - sudo git clone https://github.com/amontalban/cutycapt.git
   - cd cutycapt
