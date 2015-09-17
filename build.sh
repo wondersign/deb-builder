@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 set -xe
 
-ROOT_DIR=`pwd`
 BASH=$(which bash)
 
 for RELEASE in `echo wheezy`; do
@@ -12,7 +11,7 @@ for RELEASE in `echo wheezy`; do
 
   pbuilder update --basetgz /var/cache/pbuilder/debian-${RELEASE}.tgz
 
-  cd ${ROOT_DIR}/packages/${RELEASE}
+  cd ${CI_HOME}/packages/${RELEASE}
   for PACKAGE in `ls -1d */ | cut -f1 -d'/'`; do
     cd ${PACKAGE}
     ${BASH} build.sh ${RELEASE}
