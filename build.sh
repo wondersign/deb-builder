@@ -4,7 +4,7 @@ set -xe
 for RELEASE in `echo wheezy`; do
   pbuilder create --basetgz /var/cache/pbuilder/debian-${RELEASE}.tgz \
   --distribution ${RELEASE} --debootstrapopts \
-  --keyring=/etc/apt/trusted.gpg.d/debian-archive-${release}-stable.gpg \
+  --keyring=/etc/apt/trusted.gpg.d/debian-archive-${RELEASE}-stable.gpg \
   --mirror http://httpredir.debian.org/debian/
 
   pbuilder update
