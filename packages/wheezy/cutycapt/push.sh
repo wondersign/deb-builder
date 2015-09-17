@@ -4,6 +4,7 @@ set -xe
 RELEASE=$1
 PACKAGE="cutycapt"
 REPOSITORY="amontalban/${PACKAGE}"
+BASENAME=$(which basename)
 
 mkdir -p ~/build/debs/debian/${RELEASE}/${PACKAGE}
 
@@ -11,7 +12,8 @@ cp -Rp *.deb ~/build/debs/debian/${RELEASE}/${PACKAGE}
 
 # Remove existant packages
 for deb in `ls -1 ~/build/debs/debian/${RELEASE}/${PACKAGE}/*.deb`; do
-  package_cloud yank ${REPOSITORY}/debian/${RELEASE} ${deb}
+  FILE=`${BASENAME} $deb`
+  package_cloud yank ${REPOSITORY}/debian/${RELEASE} ${FILE}
 done
 
 # Push new packages
