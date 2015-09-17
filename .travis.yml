@@ -1,7 +1,6 @@
 env:
   global:
-    - REPOSITORY="amontalban/deb-builder"
-    - CI_HOME=`pwd`/$REPOSITORY
+    - CI_HOME=`pwd`
 language: python
 python:
  - "2.7"
