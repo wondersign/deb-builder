@@ -1,6 +1,11 @@
 #! /usr/bin/env bash
 set -xe
 
-mkdir -p ~/build/debs
-cp -Rp *.deb ~/build/debs
-package_cloud push amontalban/cutycapt/debian/wheezy ~/build/debs/*.deb
+for RELEASE in `echo wheezy`; do
+  cd ${ROOT_DIR}/packages/${RELEASE}
+  for PACKAGE in `ls -1d */ | cut -f1 -d'/'`; do
+    cd ${PACKAGE}
+    ${BASH} push.sh ${RELEASE}
+    cd ..
+  done
+done

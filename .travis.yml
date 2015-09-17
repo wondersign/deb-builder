@@ -5,5 +5,6 @@ before_install:
   - gem install package_cloud
 script:
   - bash env.sh
+  - sudo -E sh -c "bash init.sh"
   - sudo -E sh -c "bash build.sh"
   - bash push.sh
