@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 set -xe
 
-apt-get update
-apt-get -y install -t precise-backports debian-archive-keyring
-apt-get -y install subversion pbuilder debootstrap devscripts dos2unix git
+apt-get -o Acquire::ForceIPv4=true update
+apt-get -o Acquire::ForceIPv4=true -y install -t precise-backports \
+debian-archive-keyring
+apt-get -o Acquire::ForceIPv4=true -y install subversion pbuilder debootstrap \
+devscripts dos2unix git
