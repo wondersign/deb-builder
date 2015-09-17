@@ -1,6 +1,9 @@
 #! /usr/bin/env bash
 set -xe
 
+ROOT_DIR=`pwd`
+BASH=$(which bash)
+
 for RELEASE in `echo wheezy`; do
   pbuilder create --basetgz /var/cache/pbuilder/debian-${RELEASE}.tgz \
   --distribution ${RELEASE} --debootstrapopts \
