@@ -7,7 +7,7 @@ for RELEASE in `echo wheezy`; do
   --keyring=/etc/apt/trusted.gpg.d/debian-archive-${RELEASE}-stable.gpg \
   --mirror http://httpredir.debian.org/debian/
 
-  pbuilder --basetgz /var/cache/pbuilder/debian-${RELEASE}.tgz update
+  pbuilder update --basetgz /var/cache/pbuilder/debian-${RELEASE}.tgz
 
   cd ${ROOT_DIR}/packages/${RELEASE}
   for PACKAGE in `ls -1d */ | cut -f1 -d'/'`; do
