@@ -5,4 +5,4 @@ apt-get -o Acquire::ForceIPv4=true update
 apt-get -o Acquire::ForceIPv4=true -y install -t precise-backports \
 debian-archive-keyring
 apt-get -o Acquire::ForceIPv4=true -y install subversion pbuilder debootstrap \
-devscripts dos2unix git
+devscripts dos2unix git curl
