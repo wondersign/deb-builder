@@ -3,10 +3,13 @@ set -xe
 
 RELEASE=$1
 PACKAGE="libnet-amazon-ec2-perl"
-VERSION="0.29-1"
+VERSION="0.29"
+REVISION="1"
 
 git clone https://github.com/amontalban/${PACKAGE}.git
 cd ${PACKAGE}
-git checkout tags/debian/${VERSION}
+git archive --format tar.gz --prefix=Net-Amazon-EC2-${VERSION}/ \
+--output ../libnet-amazon-ec2-perl_${VERSION}.orig.tar.gz upstream/${VERSION}
+git checkout tags/debian/${VERSION}-${REVISION}
 pdebuild --use-pdebuild-internal -- \
 --basetgz /var/cache/pbuilder/debian-${RELEASE}.tgz
