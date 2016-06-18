@@ -3,7 +3,8 @@ set -xe
 
 RELEASE=$1
 PACKAGE="libnet-amazon-ec2-perl"
-REPOSITORY="amontalban/${PACKAGE}"
+ACCOUNT="wondersign"
+REPOSITORY="${ACCOUNT}/${PACKAGE}"
 BASENAME=$(which basename)
 CURL=$(which curl)
 

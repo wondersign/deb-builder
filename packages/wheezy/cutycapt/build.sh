@@ -3,8 +3,9 @@ set -xe
 
 RELEASE=$1
 PACKAGE="cutycapt"
+ACCOUNT="wondersign"
 
-git clone https://github.com/amontalban/${PACKAGE}.git
+git clone https://github.com/${ACCOUNT}/${PACKAGE}.git
 cd ${PACKAGE}
 debian/rules get-orig-source
 mv ${PACKAGE}*.tar.gz ..

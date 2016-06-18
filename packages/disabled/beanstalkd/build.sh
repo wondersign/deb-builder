@@ -5,8 +5,9 @@ RELEASE=$1
 PACKAGE="beanstalkd"
 VERSION="1.10"
 REVISION="1"
+ACCOUNT="wondersign"
 
-git clone https://github.com/amontalban/${PACKAGE}.git
+git clone https://github.com/${ACCOUNT}/${PACKAGE}.git
 cd ${PACKAGE}
 git archive --format tar.gz --prefix=beanstalkd-${VERSION}/ \
 --output ../beanstalkd_${VERSION}.orig.tar.gz upstream/${VERSION}
